@@ -141,6 +141,18 @@ void CAutomationDlg::OnPaint()
 	}
 	else
 	{
+		CPaintDC dc(this);
+		Graphics G(dc.m_hDC);
+		wchar_t path[100];
+		for (int i=1; i<=3; i++) {
+			swprintf(path,L"res\\pic%d.png",i);
+			Image I(path);
+
+		   if (I.GetLastStatus() != Ok) {
+			 return;
+		   }
+		   G.DrawImage(&I,200*i,50);
+		}
 		CDialogEx::OnPaint();
 	}
 }

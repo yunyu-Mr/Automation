@@ -18,11 +18,14 @@
 class CAutomationApp : public CWinApp
 {
 public:
+	GdiplusStartupInput gdiplusStartupInput;
+	ULONG_PTR gdiplusToken;
 	CAutomationApp();
 
 // ÷ÿ–¥
 public:
 	virtual BOOL InitInstance();
+	virtual int ExitInstance();
 
 //  µœ÷
 

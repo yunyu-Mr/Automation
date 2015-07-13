@@ -52,6 +52,8 @@ BOOL CAutomationApp::InitInstance()
 
 	CWinApp::InitInstance();
 
+	//Add GDI+ support
+	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
 	AfxEnableControlContainer();
 
@@ -101,3 +103,7 @@ BOOL CAutomationApp::InitInstance()
 	return FALSE;
 }
 
+int CAutomationApp::ExitInstance() {
+	GdiplusShutdown(gdiplusToken);
+	return CWinApp::ExitInstance();
+}
